@@ -1,0 +1,35 @@
+  - name: ec2-hvm-amazonlinux-2014091-t2-micro
+    driver:
+      name: ec2
+      image_id: ami-4985b048
+      username: ec2-user
+      flavor_id: "t2.micro"
+    run_list:
+    - recipe[aws::default]
+    - recipe[ohai::default]
+    - recipe[ohai-custom::default]
+    - recipe[awstool::setup_swap]
+
+  - name: ec2-hvm-amazonlinux-2014091-t2-midium
+    driver:
+      name: ec2
+      image_id: ami-4985b048
+      username: ec2-user
+      flavor_id: "t2.medium"
+    run_list:
+    - recipe[aws::default]
+    - recipe[ohai::default]
+    - recipe[ohai-custom::default]
+    - recipe[awstool::setup_swap]
+
+  - name: ec2-centos-65
+    driver:
+      name: ec2
+      image_id: ami-81294380
+      username: root
+      flavor_id: "t1.micro"
+    run_list:
+    - recipe[aws::default]
+    - recipe[ohai::default]
+    - recipe[ohai-custom::default]
+    - recipe[awstool::setup_swap]
